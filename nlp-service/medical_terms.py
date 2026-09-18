@@ -1,0 +1,22 @@
+MEDICAL_TERMS = {
+    "hepatomegaly": "enlarged liver",
+    "fatty infiltration": "extra fat stored in the liver",
+    "hypertension": "high blood pressure",
+    "tachycardia": "fast heartbeat",
+    "bradycardia": "slow heartbeat",
+    "edema": "swelling caused by fluid",
+    "inflammation": "swelling and irritation",
+    "benign": "not cancerous",
+    "malignant": "cancerous",
+    "lesion": "an abnormal area of tissue",
+    "fracture": "a broken bone",
+    "pneumonia": "an infection or inflammation of the lungs",
+    "anemia": "a low number of healthy red blood cells",
+    "hyperglycemia": "high blood sugar",
+    "hypoglycemia": "low blood sugar",
+    "cardiomegaly": "enlarged heart",
+    "pulmonary opacity": "an area in the lung that looks denser than usual",
+    "no focal": "no specific localized area",
+    "diffuse": "spread across a wide area",
+    "infiltration": "a substance spread into body tissue"
+}
