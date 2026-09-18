@@ -1,0 +1,10 @@
+export default function LoginHealthcare({ className = '' }) {
+  return (
+    <svg viewBox="0 0 520 420" className={className} role="img" aria-label="Soft gradient healthcare illustration" xmlns="http://www.w3.org/2000/svg">
+      <defs><radialGradient id="login-health-glow"><stop stopColor="#93C5FD" stopOpacity=".72" /><stop offset="1" stopColor="#60A5FA" stopOpacity="0" /></radialGradient><linearGradient id="login-health-paper" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#FFFFFF" /><stop offset="1" stopColor="#DCEEFF" /></linearGradient></defs>
+      <circle cx="270" cy="205" r="190" fill="url(#login-health-glow)" opacity=".6" /><circle cx="99" cy="92" r="42" fill="#E8F2FF" opacity=".7" /><circle cx="427" cy="320" r="58" fill="#E8F2FF" opacity=".55" />
+      <g transform="rotate(-7 260 216)"><rect x="128" y="82" width="260" height="270" rx="24" fill="url(#login-health-paper)" stroke="#BFDDF8" strokeWidth="3" /><rect x="163" y="120" width="112" height="16" rx="8" fill="#0B2A4A" /><rect x="163" y="153" width="175" height="10" rx="5" fill="#BFDDF8" /><rect x="163" y="175" width="145" height="10" rx="5" fill="#DCEEFF" /><path d="M163 247h32l16-29 18 49 22-34 22 14h47" fill="none" stroke="#2563EB" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" /><path d="M163 282h132" stroke="#BFDDF8" strokeWidth="8" strokeLinecap="round" /><circle cx="335" cy="117" r="22" fill="#E8F2FF" /><path d="M335 105v24M323 117h24" stroke="#2563EB" strokeWidth="5" strokeLinecap="round" /></g>
+      <path d="M54 282c43-35 68-36 106-12 36 22 60 18 91-7 35-29 67-29 103-3 38 27 70 25 115-14" fill="none" stroke="#BFDBFE" strokeWidth="5" strokeLinecap="round" opacity=".8" /><circle cx="84" cy="264" r="7" fill="#2563EB" /><circle cx="456" cy="246" r="7" fill="#2563EB" /><g transform="translate(46 124)"><rect width="82" height="56" rx="18" fill="#FFFFFF" opacity=".92" /><path d="M41 14v28M27 28h28" stroke="#2563EB" strokeWidth="7" strokeLinecap="round" /></g>
+    </svg>
+  );
+}

@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import UploadBox from '../components/UploadBox';
 import TextInput from '../components/TextInput';
 import ModernResult from '../components/ModernResult';
+import AnalyzeLineArt from '../components/illustrations/AnalyzeLineArt';
 import { simplifyText, uploadPdf } from '../services/api';
 import { languages } from '../i18n/config';
 
@@ -61,7 +62,10 @@ export default function ModernAnalyze() {
   const selectedLanguage = languages.find((language) => language.code === outputLanguage)?.label || 'English';
 
   return (
-    <main className="min-h-[calc(100vh-4rem)] bg-[#f4f8fc] px-4 py-10 sm:px-6 lg:py-14">
+    <main className="relative min-h-[calc(100vh-4rem)] bg-[#f4f8fc] px-4 py-10 sm:px-6 lg:py-14">
+      <div className="pointer-events-none absolute right-4 top-8 hidden w-36 opacity-55 xl:block" aria-hidden="true">
+        <AnalyzeLineArt className="w-full" />
+      </div>
       <div className="mx-auto flex w-full max-w-[820px] flex-col items-center">
         <div className="mb-7 text-center">
           <div className="mb-3 flex items-center justify-center gap-2 text-sm font-medium text-sky-700">

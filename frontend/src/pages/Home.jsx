@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2, FileText, Languages, ShieldCheck, Sparkles, Stethoscope } from 'lucide-react';
+import { ArrowRight, CheckCircle2, FileText, Languages, Sparkles, Stethoscope } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import HomeHeroIllustration from '../components/illustrations/HomeHeroIllustration';
-import HowItWorksIllustration from '../components/illustrations/HowItWorksIllustration';
+import HomeMedicalAI from '../components/illustrations/HomeMedicalAI';
+import HowItWorksIsometric from '../components/illustrations/HowItWorksIsometric';
 import LanguageIllustration from '../components/illustrations/LanguageIllustration';
 import SafetyIllustration from '../components/illustrations/SafetyIllustration';
 
@@ -16,12 +16,6 @@ export default function Home() {
     { Icon: Languages, title: 'Simplify Medical Language', description: 'Turn medical notes into everyday language that is easier to understand.' },
     { Icon: Sparkles, title: 'Explain Medical Terms', description: 'Get plain-language definitions for technical words and phrases in your report.' },
     { Icon: FileText, title: 'Extract Key Findings', description: 'Highlight the core points and important clinical details in a clear summary.' }
-  ];
-
-  const steps = [
-    { number: '01', title: t('home.upload'), description: t('home.uploadText') },
-    { number: '02', title: t('home.analyzeStep'), description: t('home.analyzeText') },
-    { number: '03', title: t('home.understand'), description: t('home.understandText') }
   ];
 
   return (
@@ -64,7 +58,7 @@ export default function Home() {
 
           <div className="flex items-center justify-center">
             <div className="w-full max-w-xl">
-              <HomeHeroIllustration className="w-full drop-shadow-[0_22px_32px_rgba(37,99,235,0.12)]" />
+              <HomeMedicalAI className="w-full drop-shadow-[0_22px_32px_rgba(37,99,235,0.12)]" />
             </div>
           </div>
         </div>
@@ -115,7 +109,7 @@ export default function Home() {
 
           <div className="flex items-center justify-center">
             <div className="w-full max-w-xl rounded-[24px] border border-[#D7E4F0] bg-white/80 p-4 shadow-[0_16px_32px_rgba(37,99,235,0.08)]">
-              <HowItWorksIllustration className="w-full" />
+              <HowItWorksIsometric className="w-full" />
             </div>
           </div>
         </div>

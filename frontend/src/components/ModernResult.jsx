@@ -1,5 +1,4 @@
-﻿import { useState } from 'react';
-import { Download, RotateCcw } from 'lucide-react';
+﻿import { Download, RotateCcw } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Alert, AlertDescription } from '@/components/ui/alert';
@@ -7,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import ResultsMedicalIllustration from './illustrations/ResultsMedicalIllustration';
+import ResultsDashboard from './illustrations/ResultsDashboard';
 
 export default function ModernResult({ result, onReset }) {
   const { t } = useTranslation();
@@ -39,7 +38,7 @@ export default function ModernResult({ result, onReset }) {
       </div>
 
       <div className="mb-6 flex justify-center lg:justify-start">
-        <ResultsMedicalIllustration className="w-full max-w-[420px]" />
+        <ResultsDashboard className="w-full max-w-[560px]" />
       </div>
 
       <div className="flex flex-col gap-6">

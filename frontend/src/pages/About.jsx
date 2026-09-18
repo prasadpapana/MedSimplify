@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { CheckCircle2, FileText, ShieldCheck } from 'lucide-react';
-import AboutIllustration from '../components/illustrations/AboutIllustration';
+import AboutAbstractAI from '../components/illustrations/AboutAbstractAI';
 
 export default function About() {
   const { t } = useTranslation();
@@ -19,7 +19,7 @@ export default function About() {
             <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">{t('about.lead')}</p>
           </div>
           <div className="w-full max-w-md">
-            <AboutIllustration className="w-full" />
+            <AboutAbstractAI className="w-full" />
           </div>
         </div>
 

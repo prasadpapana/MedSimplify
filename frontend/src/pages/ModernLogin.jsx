@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
-import LoginIllustration from '../components/illustrations/LoginIllustration';
+import LoginHealthcare from '../components/illustrations/LoginHealthcare';
 
 export default function ModernLogin() {
   const { t } = useTranslation();
@@ -42,7 +42,7 @@ export default function ModernLogin() {
         </div>
 
         <div className="relative z-10 flex h-full items-center justify-center py-8">
-          <LoginIllustration className="w-full max-w-[420px] drop-shadow-[0_28px_38px_rgba(59,130,246,0.18)]" />
+          <LoginHealthcare className="w-full max-w-[420px] drop-shadow-[0_28px_38px_rgba(59,130,246,0.18)]" />
         </div>
 
         <div className="relative z-10 flex items-center gap-3 text-sm text-slate-300">
