@@ -105,6 +105,51 @@ body::before {
   }
 }
 
+/* Keep the landing pages readable when the shared theme toggles. */
+.dark body,
+.dark main,
+.dark [class~="bg-[#F3F8FD]"],
+.dark [class~="bg-[#F4F8FC]"],
+.dark [class~="bg-[#EAF3FB]"] {
+  background-color: #08111F !important;
+}
+
+.dark [data-slot="card"] {
+  background-color: #101D2E !important;
+}
+
+.dark [class~="bg-white"] {
+  background-color: #101D2E !important;
+}
+
+.dark [class~="text-slate-950"],
+.dark [class~="text-[#0B2A4A]"],
+.dark [class~="text-[#102A43]"] {
+  color: #F8FAFC !important;
+}
+
+.dark [class~="text-slate-600"],
+.dark [class~="text-slate-700"],
+.dark [class~="text-slate-500"],
+.dark [class~="text-[#64748B]"] {
+  color: #CBD5E1 !important;
+}
+
+.dark [class~="border-slate-200"],
+.dark [class~="border-[#D8E3EF]"],
+.dark [class~="border-[#D7E4F0]"] {
+  border-color: #243B53 !important;
+}
+
+.dark [class~="bg-sky-50"] {
+  background-color: #17283D !important;
+}
+
+.dark [class~="text-sky-700"],
+.dark [class~="text-[#2563EB]"] {
+  color: #60A5FA !important;
+}
+
 .analyze-submit {
   background: #0B2A4A !important;
   border-color: #0B2A4A !important;
