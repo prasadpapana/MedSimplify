@@ -53,7 +53,7 @@ export default function ModernAnalyze() {
 
   if (result) {
     return (
-      <main className="min-h-[calc(100vh-4rem)] bg-[#F3F8FD] px-4 py-10 sm:px-6 lg:py-14">
+      <main className="min-h-[calc(100vh-4rem)] bg-[#F4F8FC] px-4 py-10 text-[#0B2A4A] sm:px-6 lg:py-14 dark:bg-[#08111F] dark:text-[#F8FAFC]">
         <ModernResult result={result} onReset={reset} />
       </main>
     );
@@ -62,7 +62,7 @@ export default function ModernAnalyze() {
   const selectedLanguage = languages.find((language) => language.code === outputLanguage)?.label || 'English';
 
   return (
-    <main className="relative min-h-[calc(100vh-4rem)] bg-[#f4f8fc] px-4 py-10 sm:px-6 lg:py-14">
+    <main className="relative min-h-[calc(100vh-4rem)] bg-[#F4F8FC] px-4 py-10 text-[#0B2A4A] sm:px-6 lg:py-14 dark:bg-[#08111F] dark:text-[#F8FAFC]">
       <div className="pointer-events-none absolute right-4 top-8 hidden w-36 opacity-55 xl:block" aria-hidden="true">
         <AnalyzeLineArt className="w-full" />
       </div>
@@ -74,8 +74,8 @@ export default function ModernAnalyze() {
             </span>
             <span>Report Analysis</span>
           </div>
-          <h1 className="text-4xl font-semibold tracking-[-0.05em] text-slate-950 sm:text-5xl">Analyze Your Medical Report</h1>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
+          <h1 className="text-4xl font-semibold tracking-[-0.05em] text-[#0B2A4A] sm:text-5xl dark:text-[#F8FAFC]">Analyze Your Medical Report</h1>
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg dark:text-slate-300">
             Upload a medical report or paste the text to get a simpler explanation.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-[#edf8ff] px-3 py-1.5 text-sm font-medium text-sky-800">
@@ -84,9 +84,9 @@ export default function ModernAnalyze() {
           </div>
         </div>
 
-        <form onSubmit={analyze} className="w-full rounded-[20px] border border-slate-200 bg-white p-5 shadow-[0_16px_40px_rgba(17,24,39,0.07)] sm:p-8">
+        <form onSubmit={analyze} className="w-full rounded-[20px] border border-slate-200 bg-white p-5 shadow-[0_16px_40px_rgba(17,24,39,0.07)] sm:p-8 dark:border-[#243B53] dark:bg-[#101D2E]">
           <div className="space-y-3">
-            <Label className="text-base font-semibold text-slate-800">{t('analyze.uploadTitle')}</Label>
+            <Label className="text-base font-semibold text-slate-800 dark:text-slate-100">{t('analyze.uploadTitle')}</Label>
             <UploadBox file={file} onFile={selectFile} disabled={loading} />
           </div>
 
@@ -107,15 +107,15 @@ export default function ModernAnalyze() {
           />
 
           <div className="mt-7 space-y-2">
-            <Label htmlFor="output-language" className="text-base font-semibold text-slate-800">Output Language</Label>
+            <Label htmlFor="output-language" className="text-base font-semibold text-[#0B2A4A] dark:text-[#F8FAFC]">Output Language</Label>
             <Select value={outputLanguage} onValueChange={setOutputLanguage}>
-              <SelectTrigger id="output-language" className="h-12 w-full rounded-xl border-slate-200 bg-white text-slate-700">
+              <SelectTrigger id="output-language" className="h-12 w-full rounded-lg border-slate-200 bg-white text-slate-700 dark:border-[#243B53] dark:bg-[#101D2E] dark:text-slate-100">
                 <SelectValue>
                   <Globe2 className="h-4 w-4 text-sky-700" />
                   {selectedLanguage}
                 </SelectValue>
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="z-[50]">
                 {languages.map((language) => (
                   <SelectItem key={language.code} value={language.code}>{language.label}</SelectItem>
                 ))}
@@ -133,7 +133,7 @@ export default function ModernAnalyze() {
             </Alert>
           )}
 
-          <Button type="submit" disabled={(!file && !text.trim()) || loading} className="mt-7 h-12 w-full rounded-xl bg-[#102b46] text-base font-semibold text-white shadow-none hover:bg-[#183d61] disabled:opacity-80">
+          <Button type="submit" disabled={(!file && !text.trim()) || loading} className="analyze-submit mt-7 h-12 w-full rounded-lg text-base font-semibold shadow-none transition-colors disabled:opacity-80">
             {loading ? <><LoaderCircle className="mr-2 h-4 w-4 animate-spin" />{t('analyze.analyzing')}</> : <>Analyze Report<ArrowRight className="ml-2 h-4 w-4" /></>}
           </Button>
 
@@ -145,7 +145,7 @@ export default function ModernAnalyze() {
           )}
         </form>
 
-        <div className="mt-5 flex w-full items-start gap-3 rounded-2xl border border-sky-200 bg-[#f1fbff] p-4 text-slate-700">
+        <div className="mt-5 flex w-full items-start gap-3 rounded-2xl border border-sky-200 bg-[#f1fbff] p-4 text-slate-700 dark:border-[#243B53] dark:bg-[#101D2E] dark:text-slate-200">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-100 text-sky-700"><ShieldCheck className="h-4 w-4" /></div>
           <div>
             <p className="text-sm font-semibold text-slate-800">For informational purposes only</p>

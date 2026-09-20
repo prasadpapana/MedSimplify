@@ -104,3 +104,26 @@ body::before {
     font-family: 'Geist Variable', sans-serif;
   }
 }
+
+.analyze-submit {
+  background: #0B2A4A !important;
+  border-color: #0B2A4A !important;
+  color: #FFFFFF !important;
+}
+
+.analyze-submit:hover:not(:disabled) {
+  background: #2563EB !important;
+  border-color: #2563EB !important;
+}
+
+.dark .analyze-submit {
+  background: #2563EB !important;
+  border-color: #2563EB !important;
+  color: #FFFFFF !important;
+}
+
+.dark .analyze-submit:hover:not(:disabled) {
+  background: #60A5FA !important;
+  border-color: #60A5FA !important;
+  color: #0B2A4A !important;
+}

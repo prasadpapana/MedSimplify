@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Globe, Menu, Stethoscope } from 'lucide-react';
+import { Globe, Menu, Moon, Stethoscope, Sun } from 'lucide-react';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
@@ -9,7 +9,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { languages } from '../i18n/config';
 import i18n from '../i18n/config';
 
-export default function ModernNavbar() {
+export default function ModernNavbar({ theme, onThemeToggle }) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
@@ -21,15 +21,16 @@ export default function ModernNavbar() {
   const selectedLanguage = languages.find((language) => language.code === i18n.language)?.label || 'English';
 
   const getLinkClass = ({ isActive }) =>
-    `text-sm font-medium transition-colors ${
-      isActive ? 'text-slate-950' : 'text-slate-600 hover:text-slate-950'
+    `border-b-2 py-5 text-sm font-medium transition-colors ${
+      isActive ? 'border-[#2563EB] text-[#0B2A4A] dark:border-[#60A5FA] dark:text-[#F8FAFC]' : 'border-transparent text-slate-600 hover:border-[#2563EB] hover:text-[#0B2A4A] dark:text-slate-300 dark:hover:border-[#60A5FA] dark:hover:text-[#F8FAFC]'
     }`;
+  const ThemeIcon = theme === 'dark' ? Sun : Moon;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md dark:border-[#243B53] dark:bg-[#101D2E]/90">
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-4 sm:px-6 lg:px-8">
-        <Link className="flex items-center gap-2 font-semibold tracking-tight text-slate-950" to="/" aria-label="MedSimplify home">
-          <span className="flex h-8 w-8 items-center justify-center rounded-md border border-sky-100 bg-sky-50 text-sky-700">
+        <Link className="flex items-center gap-2 font-semibold tracking-tight text-slate-950 dark:text-slate-50" to="/" aria-label="MedSimplify home">
+          <span className="flex h-8 w-8 items-center justify-center rounded-md border border-sky-100 bg-sky-50 text-sky-700 dark:border-[#243B53] dark:bg-[#17283D] dark:text-[#60A5FA]">
             <Stethoscope className="h-4 w-4" />
           </span>
           <span className="text-lg">MedSimplify</span>
@@ -58,16 +59,19 @@ export default function ModernNavbar() {
             </SelectContent>
           </Select>
 
-          <Button asChild size="sm" className="h-9 px-4">
+          <Button variant="outline" size="sm" onClick={onThemeToggle} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} className="h-9 gap-2 border-slate-200 bg-white px-3 text-slate-700 hover:bg-slate-50 dark:border-[#243B53] dark:bg-[#101D2E] dark:text-slate-100 dark:hover:bg-[#17283D]">
+            <ThemeIcon className="h-4 w-4" />
+            <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
+          </Button>
+
+          <Button asChild size="sm" className="h-9 border-[#0B2A4A] bg-[#0B2A4A] px-4 text-white hover:border-[#2563EB] hover:bg-[#2563EB]">
             <Link to="/login">{t('nav.login')}</Link>
           </Button>
         </div>
 
         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger asChild>
-            <Button variant="outline" size="icon" className="ml-auto h-9 w-9 border-slate-200 bg-white md:hidden">
-              <Menu className="h-4 w-4" />
-            </Button>
+          <SheetTrigger render={<button type="button" className="ml-auto inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-700 md:hidden dark:border-[#243B53] dark:bg-[#101D2E] dark:text-slate-100" aria-label="Open menu" />}>
+            <Menu className="h-4 w-4" />
           </SheetTrigger>
           <SheetContent side="right">
             <SheetHeader>
@@ -108,10 +112,18 @@ export default function ModernNavbar() {
                 </SelectContent>
               </Select>
 
+              <Button variant="outline" onClick={onThemeToggle} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} className="mt-2 w-full justify-center gap-2 border-slate-200 bg-white text-slate-700 dark:border-[#243B53] dark:bg-[#101D2E] dark:text-slate-100">
+                <ThemeIcon className="h-4 w-4" />
+                <span>{theme === 'dark' ? 'Light' : 'Dark'}</span>
+              </Button>
+
               <Button asChild className="mt-4 w-full">
                 <Link to="/login" onClick={() => setOpen(false)}>
                   {t('nav.login')}
                 </Link>
+              </Button>
+              <Button asChild variant="outline" className="w-full" onClick={() => setOpen(false)}>
+                <Link to="/signup">{t('auth.signupTitle')}</Link>
               </Button>
             </div>
           </SheetContent>

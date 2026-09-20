@@ -36,8 +36,11 @@ export default function Home() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Button asChild size="lg" className="h-11 px-6">
+              <Button asChild size="lg" className="h-11 border-[#0B2A4A] bg-[#0B2A4A] px-6 text-white hover:border-[#2563EB] hover:bg-[#2563EB]">
                 <Link to="/analyze">{t('home.analyze')}</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="h-11 border-[#D8E3EF] bg-white px-6 text-[#0B2A4A] hover:bg-[#E8F2FF]">
+                <Link to="/signup">{t('auth.signupTitle')}</Link>
               </Button>
               <Button variant="outline" size="lg" className="h-11 border-slate-200 bg-white px-6 text-slate-900">
                 <Link to="/#how-it-works">{t('home.how')}</Link>
