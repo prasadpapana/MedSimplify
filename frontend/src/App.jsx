@@ -11,7 +11,7 @@ import Signup from './pages/Signup';
 function AppShell({ theme, onThemeToggle }) {
   const { pathname } = useLocation();
   const isAuthRoute = pathname === '/login' || pathname === '/signup';
-  return <><ModernNavbar theme={theme} onThemeToggle={onThemeToggle} /><Routes><Route path="/" element={<Home />} /><Route path="/analyze" element={<Analyze />} /><Route path="/about" element={<About />} /><Route path="/login" element={<Login />} /><Route path="/signup" element={<Signup />} /></Routes>{!isAuthRoute && <Footer />}</>;
+  return <><ModernNavbar theme={theme} onThemeToggle={onThemeToggle} /><Routes><Route path="/" element={<Home />} /><Route path="/analyze" element={<Analyze />} /><Route path="/results" element={<Analyze />} /><Route path="/about" element={<About />} /><Route path="/login" element={<Login />} /><Route path="/signup" element={<Signup />} /></Routes>{!isAuthRoute && <Footer />}</>;
 }
 
 export default function App() {
@@ -22,5 +22,5 @@ export default function App() {
     localStorage.setItem('medsimplify-theme', theme);
   }, [theme]);
 
-  return <BrowserRouter><AppShell theme={theme} onThemeToggle={() => setTheme((currentTheme) => currentTheme === 'light' ? 'dark' : 'light')} /></BrowserRouter>;
+  return <BrowserRouter basename={import.meta.env.BASE_URL}><AppShell theme={theme} onThemeToggle={() => setTheme((currentTheme) => currentTheme === 'light' ? 'dark' : 'light')} /></BrowserRouter>;
 }
