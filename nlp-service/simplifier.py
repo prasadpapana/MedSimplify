@@ -1,15 +1,7 @@
 import re
 from typing import Any
 
-import spacy
-
 from medical_terms import MEDICAL_TERMS
-
-try:
-    NLP = spacy.load("en_core_web_sm")
-except OSError:
-    NLP = spacy.blank("en")
-    NLP.add_pipe("sentencizer")
 
 
 TERM_TRANSLATIONS = {
@@ -33,6 +25,12 @@ def clean_text(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+def split_sentences(text: str) -> list[str]:
+    normalized = text.replace("\r\n", "\n").replace("\r", "\n")
+    parts = re.split(r"(?<=[.!?])\s+|\n+", normalized)
+    return [part.strip() for part in parts if part.strip()]
+
+
 def _replace_terms(sentence: str) -> str:
     result = sentence
     result = re.sub(r"diffuse fatty infiltration of the liver", "contains more fat than normal", result, flags=re.IGNORECASE)
@@ -47,8 +45,7 @@ def _replace_terms(sentence: str) -> str:
 
 def simplify_report(text: str, language: str = "en") -> dict[str, Any]:
     cleaned = clean_text(text)
-    document = NLP(cleaned)
-    sentences = [sentence.text.strip() for sentence in document.sents if sentence.text.strip()]
+    sentences = split_sentences(cleaned)
     simplified_sentences = [_replace_terms(sentence) for sentence in sentences]
 
     detected = []
