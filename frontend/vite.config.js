@@ -3,8 +3,11 @@ import react from '@vitejs/plugin-react';
 import path from 'node:path';
 
 export default defineConfig({
-  base: '/medsimplify/',
+  base: '/',
   plugins: [react()],
   resolve: { alias: { '@': path.resolve(process.cwd(), 'src') } },
-  server: { port: 5173 }
+  server: {
+    port: 5173,
+    proxy: { '/api': 'http://localhost:5000' }
+  }
 });

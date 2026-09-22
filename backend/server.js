@@ -17,4 +17,8 @@ app.use((error, _request, response, _next) => {
   response.status(500).json({ error: 'Something went wrong on the server.' });
 });
 
-app.listen(port, () => console.log(`MedSimplify backend listening on http://localhost:${port}`));
+export default app;
+
+if (process.env.VERCEL !== '1') {
+  app.listen(port, () => console.log(`MedSimplify backend listening on http://localhost:${port}`));
+}
